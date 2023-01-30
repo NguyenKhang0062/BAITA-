@@ -22,9 +22,20 @@ def tim_tu(tu_dien):
             break
         break
     else:
-        print("không tìm thấy trong từ điể")
+        print("không tìm thấy trong từ điển")
     return
-chon={"1":"xem từ điển","2":"thêm từ vào từ điển","3":"tìm 1 từ"}
+def xoa_tu(tu_dien):
+    xoa=input("nhập phần tử cần xóa: ")
+    for key,value in tu_dien.items():
+        if xoa==key:
+            print(value,"từ cần tìm có nghĩa là:%a"%key)
+            break
+        break
+    else:
+        print("không tìm thấy trong từ điển")
+    del tu_dien[xoa]
+    print(tu_dien,"\n","từ điển hiện tại có: ",len(tu_dien),"từ")
+chon={"1":"xem từ điển","2":"thêm từ vào từ điển","3":"tìm 1 từ","4":"xóa từ"}
 print(chon)
 muon=int(input("bạn muốn làm việc gì? "))
 
@@ -38,15 +49,24 @@ while True:
     elif muon==3:
         tim_tu(tu_dien)
         break
+    elif muon==4:
+        xoa_tu(tu_dien)
+        break
     else: 
         while muon  !=1 or muon!=2 or muon!=3:
             nhap_lai=int(input("mời bạn nhập lại: "))
             if nhap_lai==1:
                 in_tu_dien(tu_dien)
+                break
             elif nhap_lai==2:
                 them_tu(tu_dien)
+                break
             elif nhap_lai ==3:
                 tim_tu(tu_dien)
+                break
+            elif muon==4:
+                xoa_tu(tu_dien)
+                break
             break 
 while True:
             nhap=int(input("bạn có muốn tiếp tục 1:có"))
@@ -64,14 +84,24 @@ while True:
                 elif muon==3:
                     tim_tu(tu_dien)
                     break
+                elif muon==4:
+                    xoa_tu(tu_dien)
+                    break
                 else: 
                     while muon  !=1 or muon!=2 or muon!=3:
                         nhap_lai=int(input("mời bạn nhập lại: "))
                         if nhap_lai==1:
                             in_tu_dien(tu_dien)
+                            break
                         elif nhap_lai==2:
                             them_tu(tu_dien)
+                            break
                         elif nhap_lai ==3:
                             tim_tu(tu_dien)
-                        break 
+                            break
+                        elif muon==4:
+                            xoa_tu(tu_dien)
+                            break
+                        break
+                        
 
